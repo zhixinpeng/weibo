@@ -1,3 +1,3 @@
 # weibo
 
-⛩️ Use Swiftui to produce an entry-level imitating Weibo APP application
+⛩️ Use Swift to produce an entry-level imitating Weibo APP application
