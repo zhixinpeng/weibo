@@ -111,7 +111,7 @@ struct PostCell: View {
 
 struct PostCell_Previews: PreviewProvider {
     static var previews: some View {
-        let userData = UserData()
+        let userData = UserData.testData
         return PostCell(post: userData.recommendPostList.list[0]).environmentObject(userData)
     }
 }

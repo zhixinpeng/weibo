@@ -10,11 +10,6 @@ import SwiftUI
 struct HomeView: View {
     @State var leftPercent: CGFloat = 0
     
-    init() {
-        UITableView.appearance().separatorStyle = .none
-        UITableViewCell.appearance().selectionStyle = .none
-    }
-    
     var body: some View {
         NavigationView {
             GeometryReader {geometry in
@@ -42,5 +37,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(UserData.testData)
     }
 }

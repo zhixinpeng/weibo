@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct PostList: Codable {
     var list: [Post]
@@ -27,8 +28,14 @@ struct Post: Codable, Identifiable {
     var likeCount: Int
 }
 
+extension Post: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
 extension Post {
-    var avatarImage: Image {
+    var avatarImage: WebImage {
         return loadImage(name: avatar)
     }
     
@@ -61,6 +68,7 @@ func loadPostListData(_ fileName: String) -> PostList {
     return list
 }
 
-func loadImage(name: String) -> Image {
-    return Image(uiImage: UIImage(named: name)!)
+func loadImage(name: String) -> WebImage {
+   WebImage(url: URL(string: NetworkAPIBaseURL + name))
+    .placeholder { Color.gray }
 }
